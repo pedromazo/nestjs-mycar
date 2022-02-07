@@ -27,6 +27,7 @@ export class UsersService {
             return users;
         }
 
+
         async update(id: number, attrs: Partial<User>) {
             const user = await this.findOne(id);
             if(!user) {
