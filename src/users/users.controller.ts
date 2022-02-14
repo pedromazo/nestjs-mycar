@@ -29,6 +29,7 @@ export class UsersController {
     @Get('/whoami')
     @UseGuards(AuthGuard)
     whoAmI(@CurrentUser() user: User) {
+        console.log(user)
         return user;
     }
 
@@ -48,6 +49,7 @@ export class UsersController {
     async signin(@Body() body: CreateUserDto, @Session() session: any) {
         const user = await this.authService.signin(body.email, body.password);
         session.userId = user.id;
+        console.log(user)
         return user;
     }
 
